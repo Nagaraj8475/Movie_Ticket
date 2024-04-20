@@ -1,0 +1,115 @@
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #fefeff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.congratulations {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.ticket {
+  display: flex;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0px 0px 20px rgba(10, 10, 10, 10);
+  overflow: hidden;
+  width: 70vw;
+}
+
+.ticket-image {
+  flex: 1;
+  overflow: hidden;
+}
+
+.ticket-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 15px 0 0 15px;
+}
+
+.ticket-details {
+  flex: 2;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.movie-title {
+  margin: 0;
+  color: #333;
+  font-size: 2.5vw;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.movie-info {
+  color: #555;
+  font-size: 2vw;
+  line-height: 1.4;
+}
+
+.info-label {
+  font-weight: bold;
+  color: #888;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #4caf50;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 15px;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.blast {
+  animation: blast 1s ease-in-out infinite alternate;
+}
+
+@keyframes blast {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
+.claim-button {
+  padding: 10px 20px;
+  background-color: #10c41c;
+  color: white;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+  width: 14%;
+}
+
+.claim-button:hover {
+  background-color: #0b9b3e;
+}
+
+.claim-container {
+  text-align: center;
+}

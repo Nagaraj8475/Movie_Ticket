@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="claim.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div class="ticket-left">
+        <h1>Book your free ticket</h1>
+        <form id="contact-form" class="contact-form">
+          <input
+            type="hidden"
+            name="access_key"
+            value="a6f825f8-88ad-481a-bd31-2e97f594d46c"
+          />
+          <input
+            type="text"
+            name="name"
+            placeholder="Your Name"
+            class="contact-inputs"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your Email"
+            class="contact-inputs"
+            required
+          />
+          <input
+            type="text"
+            name="Movie"
+            value="Oru Yamandan Premakadha"
+            placeholder="Movie"
+            class="contact-inputs"
+            required
+          />
+          <select name="Language" class="contact-inputs" required>
+            <option value="" disabled selected>Select Language</option>
+            <option value="Kannada">Kannada</option>
+            <option value="Telugu">Telugu</option>
+            <option value="Tamil">Tamil</option>
+            <option value="Malayalam">Malayalam</option>
+            <option value="Hindi">Hindi</option>
+          </select>
+          <br />
+          <input
+            type="date"
+            name="Date"
+            placeholder="Date"
+            class="contact-inputs"
+            required
+          />
+          <input
+            type="text"
+            name="Seat_Number"
+            placeholder="Seat Number"
+            class="contact-inputs"
+            required
+          />
+          <input
+            type="text"
+            name="Theatre"
+            placeholder="Theatre"
+            value="RadhaKrishna 4k Dolby Atmos"
+            class="contact-inputs"
+            required
+          />
+          <select name="Show_Time" class="contact-inputs" required>
+            <option value="" disabled selected>Select Show Time</option>
+            <option value="12 pm">12 PM</option>
+            <option value="3 pm">3 PM</option>
+            <option value="6 pm">6 PM</option>
+            <option value="9 pm">9 PM</option>
+          </select>
+          <br />
+          <button type="submit">Submit</button>
+        </form>
+      </div>
+      <div class="ticket-right">
+        <img src="img/oru.jpg" alt="" />
+      </div>
+    </div>
+
+    <script>
+      document
+        .getElementById("contact-form")
+        .addEventListener("submit", function (event) {
+          event.preventDefault(); // Prevent the default form submission behavior
+
+          // Serialize form data
+          var formData = new FormData(this);
+
+          // Create an AJAX request
+          var xhr = new XMLHttpRequest();
+
+          // Set up the request
+          xhr.open("POST", "https://api.web3forms.com/submit", true);
+          xhr.setRequestHeader("Content-Type", "application/json");
+
+          // Set up the callback
+          xhr.onreadystatechange = function () {
+            if (xhr.readyState === XMLHttpRequest.DONE) {
+              // Check if request was successful
+              if (xhr.status === 200) {
+                // Redirect user to custom HTML page after successful form submission
+                window.location.href =
+                  "Tclaimed.html" +
+                  "?Date=" +
+                  encodeURIComponent(formData.get("Date")) +
+                  "&Language=" +
+                  encodeURIComponent(formData.get("Language")) +
+                  "&Seat_Number=" +
+                  encodeURIComponent(formData.get("Seat_Number")) +
+                  "&Theatre=" +
+                  encodeURIComponent(formData.get("Theatre")) +
+                  "&Show_Time=" +
+                  encodeURIComponent(formData.get("Show_Time"));
+              } else {
+                // Handle errors if needed
+                console.error(
+                  "Form submission failed with status:",
+                  xhr.status
+                );
+              }
+            }
+          };
+
+          // Send the request with form data
+          xhr.send(JSON.stringify(Object.fromEntries(formData.entries())));
+        });
+    </script>
+  </body>
+</html>

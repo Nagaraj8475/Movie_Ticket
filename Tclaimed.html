@@ -1,0 +1,153 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Claimed</title>
+    <link rel="stylesheet" href="Tclaimed.css" />
+  </head>
+  <body>
+    <div class="ticket">
+      <div class="ticket-image">
+        <img src="img/oru.jpg" alt="Movie Poster" />
+      </div>
+      <div class="ticket-details">
+        <h2 class="movie-title">Oru Yamandan Premakadha</h2>
+        <p class="movie-info" id="userData"></p>
+      </div>
+      <div class="congratulations">
+        <h1>Ticket Claimed</h1>
+        <img class="small-photo" src="img/qr.jpeg" alt="Small Photo" />
+      </div>
+    </div>
+
+    <script>
+      // Function to get URL parameters
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      // Retrieve URL parameters
+      var date = getUrlParameter("Date");
+      var language = getUrlParameter("Language");
+      var seatNumber = getUrlParameter("Seat_Number");
+      var theatre = getUrlParameter("Theatre");
+      var showTime = getUrlParameter("Show_Time");
+
+      // Display form data
+      var userDataElement = document.getElementById("userData");
+      userDataElement.innerHTML =
+        "<span class='info-label'>Date:</span> " +
+        date +
+        "<br/>" +
+        "<span class='info-label'>Show Time:</span> " +
+        showTime +
+        "<br/>" +
+        "<span class='info-label'>Language:</span> " +
+        language +
+        "<br/>" +
+        "<span class='info-label'>Seat Number:</span> " +
+        seatNumber +
+        "<br/>" +
+        "<span class='info-label'>Theatre:</span> " +
+        theatre +
+        "<br/>";
+    </script>
+  </body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ticket Claimed</title>
+    <link rel="stylesheet" href="Tclaimed.css" />
+  </head>
+  <body>
+    <div class="ticket">
+      <div class="ticket-image">
+        <img src="img/oru.jpg" alt="Movie Poster" />
+      </div>
+      <div class="ticket-details">
+        <h2 class="movie-title">Oru Yamandan Premakadha</h2>
+        <p class="movie-info" id="userData"></p>
+      </div>
+      <div class="congratulations">
+        <h1>Ticket Claimed</h1>
+        <img class="small-photo" src="img/qr.jpeg" alt="Small Photo" />
+      </div>
+    </div>
+
+    <script>
+      // Function to get URL parameters
+      function getUrlParameter(name) {
+        name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+        var regex = new RegExp("[\\?&]" + name + "=([^&#]*)");
+        var results = regex.exec(location.search);
+        return results === null
+          ? ""
+          : decodeURIComponent(results[1].replace(/\+/g, " "));
+      }
+
+      // Retrieve URL parameters
+      var date = getUrlParameter("Date");
+      var language = getUrlParameter("Language");
+      var seatNumber = getUrlParameter("Seat_Number");
+      var theatre = getUrlParameter("Theatre");
+      var showTime = getUrlParameter("Show_Time");
+
+      // Display form data
+      var userDataElement = document.getElementById("userData");
+      userDataElement.innerHTML =
+        "<span class='info-label'>Date:</span> " +
+        formatDate(date) +
+        "<br/>" +
+        "<span class='info-label'>Show Time:</span> " +
+        showTime +
+        "<br/>" +
+        "<span class='info-label'>Language:</span> " +
+        language +
+        "<br/>" +
+        "<span class='info-label'>Seat Number:</span> " +
+        seatNumber +
+        "<br/>" +
+        "<span class='info-label'>Theatre:</span> " +
+        theatre +
+        "<br/>";
+
+      // Function to format date as day, month, year
+      function formatDate(dateString) {
+        // Parse the date string
+        var date = new Date(dateString);
+
+        // Extract day, month, and year
+        var day = ("0" + date.getDate()).slice(-2);
+        var monthNames = [
+          "January",
+          "February",
+          "March",
+          "April",
+          "May",
+          "June",
+          "July",
+          "August",
+          "September",
+          "October",
+          "November",
+          "December",
+        ];
+        var month = monthNames[date.getMonth()];
+        var year = date.getFullYear();
+
+        // Return the formatted date
+        return day + ", " + month + "-" + year;
+      }
+    </script>
+  </body>
+</html>
